@@ -1,10 +1,10 @@
 {
   "name": "webpack-demo",
   "version": "1.0.0",
-  "description": "ROYGBIV",
+  "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --watch --mode=development"
   },
   "keywords": [],
   "author": "",
