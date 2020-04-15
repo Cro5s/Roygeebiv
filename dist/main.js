@@ -86,26 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/Game.js":
-/*!*********************!*\
-  !*** ./src/Game.js ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/Game.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Game */ \"./src/Game.js\");\n/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Game__WEBPACK_IMPORTED_MODULE_0__);\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const canvas = document.getElementById(\"canvas\");\n  const ctx = canvas.getContext(\"2d\");\n  const game = new _Game__WEBPACK_IMPORTED_MODULE_0___default.a(canvas, ctx);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("// import Game from \"./Game\";\n\n// document.addEventListener(\"DOMContentLoaded\", () => {\n//   const canvas = document.getElementById(\"canvas\");\n//   const ctx = canvas.getContext(\"2d\");\n//   const game = new Game(canvas, ctx);\n// });\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
