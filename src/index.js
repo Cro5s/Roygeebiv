@@ -1,7 +1,7 @@
-// import Game from "./Game";
+import Board from "./Board/Board";
+import View from "./View/View";
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const canvas = document.getElementById("canvas");
-//   const ctx = canvas.getContext("2d");
-//   const game = new Game(canvas, ctx);
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root");
+  new View(root, Board);
+});
