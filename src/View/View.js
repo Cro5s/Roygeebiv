@@ -1,11 +1,11 @@
-// require("./View.css");
-// import "./View.css";
+import Board from "../Board/Board";
 
 class View {
   constructor() {
-    // this.board = board;
+    this.board = new Board();
+    this.grid = [[], [], [], []];
     this.createView();
-    this.setAttributes = this.setAttributes;
+    console.log(this.board.grid);
   }
 
   // Created in order to set multiple attributes at once on an element
@@ -15,6 +15,16 @@ class View {
     }
   }
 
+  render() {
+    this.grid.forEach((row, rowIdx) => {
+      row.forEach((el, colIdx) => {
+        const square = this.board.grid[rowIdx][colIdx];
+        const color = square ? square.color() : "";
+        this.setAttributes(el, { class: color });
+      });
+    });
+  }
+
   createView() {
     const ul = document.createElement("ul");
     this.setAttributes(ul, { class: "view-ul" });
@@ -22,15 +32,12 @@ class View {
     for (let row = 0; row < 4; row++) {
       for (let col = 0; col < 4; col++) {
         let cell = document.createElement("li");
-        // debugger;
-        // let square = this.board.grid[row][col];
+
         this.setAttributes(cell, {
-          class: "view-col",
-          row: row,
-          col: col,
           pos: [row, col],
-          // spot: square,
         });
+
+        this.grid[row][col] = cell;
         ul.appendChild(cell);
       }
     }
