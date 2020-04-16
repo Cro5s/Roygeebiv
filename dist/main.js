@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Square_Square__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Square/Square */ \"./src/Square/Square.js\");\n\n\nclass Board {\n  constructor() {\n    this.grid = [\n      [null, null, null, null],\n      [null, null, null, null],\n      [null, null, null, null],\n      [null, null, null, null],\n    ];\n    this.createGrid();\n  }\n\n  createGrid() {\n    for (let i = 0; i < 2; i++) {\n      let pos = [Math.random(3), Math.random(3)];\n      let num = Math.random(1);\n      let squareColor = num < 1 ? new _Square_Square__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\"Red\") : new _Square_Square__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\"Orange\");\n\n      while (this.grid[pos[0]][pos[1]] === null) {\n        this.grid[pos[0]][pos[1]] = squareColor;\n      }\n    }\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Board);\n// module.exports = Board;\n\n\n//# sourceURL=webpack:///./src/Board/Board.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Square_Square__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Square/Square */ \"./src/Square/Square.js\");\n\n// import Tile from \"../Tile/Tile\";\n\nclass Board {\n  constructor() {\n    this.createGrid();\n    // this.addSquare = this.addSquare();\n    // this.getRandomNum = this.getRandomNum;\n  }\n\n  // getRandomNum(max) {\n  //   return Math.floor(Math.random() * Math.floor(max));\n  // }\n\n  addSquare(grid, row, col) {\n    return (grid[row][col] = new _Square_Square__WEBPACK_IMPORTED_MODULE_0__[\"default\"]());\n  }\n\n  createGrid() {\n    // let grid = [];\n    // for (let row = 0; row < rows; row++) {\n    //   grid[row] = [];\n    //   for (let col = 0; col < cols; col++) {\n    //     const board = this.addSquare(grid, row, col);\n    //   }\n    // }\n    // for (let i = 0; i < 2; i++) {\n    // let row = this.getRandomNum(4);\n    // let col = this.getRandomNum(4);\n    // let row = Math.floor(Math.random() * 3);\n    // let col = Math.floor(Math.random() * 3);\n    // let num = Math.floor(Math.random() * 1);\n    // let square = num < 1 ? \"Red\" : \"Orange\";\n    // let square = num < 1 ? new Square(\"Red\") : new Square(\"Orange\");\n    // while (this.grid[row][col] === null) {\n    //   // row = this.getRandomNum(4);\n    //   // col = this.getRandomNum(4);\n    //   row = Math.floor(Math.random() * 3);\n    //   col = Math.floor(Math.random() * 3);\n    // }\n    // this.grid[row][col] = square;\n    // }\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Board);\n\n\n//# sourceURL=webpack:///./src/Board/Board.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Squ
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst COLORS = [\"Red\", \"Orange\", \"Yellow\", \"Green\", \"Blue\", \"Indigo\", \"Violet\"];\nclass Square {\n  constructor() {\n    this.color = color;\n    // this.val = null;\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Square);\n\n\n//# sourceURL=webpack:///./src/Square/Square.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst COLORS = [\"Red\", \"Orange\", \"Yellow\", \"Green\", \"Blue\", \"Indigo\", \"Violet\"];\nclass Square {\n  constructor(color) {\n    this.color = color;\n    // this.val = null;\n    // switch (this.color) {\n    //   case \"Red\" :\n    // }\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Square);\n\n\n//# sourceURL=webpack:///./src/Square/Square.js?");
 
 /***/ }),
 
@@ -114,10 +114,11 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst COLORS = [\"Red\", \"Or
 /*!**************************!*\
   !*** ./src/View/View.js ***!
   \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("class View {\n  constructor(root, board) {\n    this.root = root;\n    this.board = board;\n    this.createView();\n    this.setAttributes = this.setAttributes;\n  }\n\n  // Created in order to set multiple attributes at once on an element\n  setAttributes(el, attribs) {\n    for (let key in attribs) {\n      el.setAttribute(key, attribs[key]);\n    }\n  }\n\n  createView() {\n    const ul = document.createElement(\"ul\");\n    this.setAttributes(ul, { class: \"view-ul\" });\n\n    // Figure out how this will be rendered in the view\n    // this.board.grid[i][j];\n\n    for (let row = 0; row < 4; row++) {\n      for (let col = 0; col < 4; col++) {\n        let cell = document.createElement(\"li\");\n        this.setAttributes(cell, {\n          class: \"view-col\",\n          row: row,\n          col: col,\n          pos: [row, col],\n        });\n\n        ul.appendChild(cell);\n      }\n    }\n\n    this.root.appendChild(ul);\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/View/View.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// require(\"./View.css\");\n// import \"./View.css\";\n\nclass View {\n  constructor() {\n    // this.board = board;\n    this.createView();\n    this.setAttributes = this.setAttributes;\n  }\n\n  // Created in order to set multiple attributes at once on an element\n  setAttributes(el, attribs) {\n    for (let key in attribs) {\n      el.setAttribute(key, attribs[key]);\n    }\n  }\n\n  createView() {\n    const ul = document.createElement(\"ul\");\n    this.setAttributes(ul, { class: \"view-ul\" });\n\n    for (let row = 0; row < 4; row++) {\n      for (let col = 0; col < 4; col++) {\n        let cell = document.createElement(\"li\");\n        // debugger;\n        // let square = this.board.grid[row][col];\n        this.setAttributes(cell, {\n          class: \"view-col\",\n          row: row,\n          col: col,\n          pos: [row, col],\n          // spot: square,\n        });\n        ul.appendChild(cell);\n      }\n    }\n\n    root.appendChild(ul);\n  }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (View);\n\n\n//# sourceURL=webpack:///./src/View/View.js?");
 
 /***/ }),
 
@@ -129,7 +130,7 @@ eval("class View {\n  constructor(root, board) {\n    this.root = root;\n    thi
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Board_Board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Board/Board */ \"./src/Board/Board.js\");\n/* harmony import */ var _View_View__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./View/View */ \"./src/View/View.js\");\n/* harmony import */ var _View_View__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_View_View__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const root = document.getElementById(\"root\");\n  new _View_View__WEBPACK_IMPORTED_MODULE_1___default.a(root, _Board_Board__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Board_Board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Board/Board */ \"./src/Board/Board.js\");\n/* harmony import */ var _View_View__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./View/View */ \"./src/View/View.js\");\n\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  // const root = document.getElementById(\"root\");\n  const board = new _Board_Board__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n  new _View_View__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

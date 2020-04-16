@@ -1,7 +1,9 @@
+// require("./View.css");
+// import "./View.css";
+
 class View {
-  constructor(root, board) {
-    this.root = root;
-    this.board = board;
+  constructor() {
+    // this.board = board;
     this.createView();
     this.setAttributes = this.setAttributes;
   }
@@ -17,25 +19,24 @@ class View {
     const ul = document.createElement("ul");
     this.setAttributes(ul, { class: "view-ul" });
 
-    // Figure out how this will be rendered in the view
-    // this.board.grid[i][j];
-
     for (let row = 0; row < 4; row++) {
       for (let col = 0; col < 4; col++) {
         let cell = document.createElement("li");
+        // debugger;
+        // let square = this.board.grid[row][col];
         this.setAttributes(cell, {
           class: "view-col",
           row: row,
           col: col,
           pos: [row, col],
+          // spot: square,
         });
-
         ul.appendChild(cell);
       }
     }
 
-    this.root.appendChild(ul);
+    root.appendChild(ul);
   }
 }
 
-module.exports = View;
+export default View;

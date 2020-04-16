@@ -1,4 +1,4 @@
-ul {
+/* ul {
   width: 500px;
   height: 500px;
   border: 10px solid black
@@ -19,7 +19,11 @@ li {
   border: 3px solid red;
 }
 
-/* .view-row-0 {
+#canvas {
+  border: 10px solid black;
+}
+
+.view-row-0 {
   width: 500px;
   height: 100px;
   border: 3px solid red
