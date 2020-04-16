@@ -5,7 +5,7 @@ class View {
     this.board = new Board();
     this.grid = [[], [], [], []];
     this.createView();
-    console.log(this.board.grid);
+    // console.log(this.board.grid);
   }
 
   // Created in order to set multiple attributes at once on an element
@@ -26,6 +26,7 @@ class View {
   }
 
   createView() {
+    const game = document.getElementById("game-div");
     const ul = document.createElement("ul");
     this.setAttributes(ul, { class: "view-ul" });
 
@@ -42,7 +43,8 @@ class View {
       }
     }
 
-    root.appendChild(ul);
+    root.appendChild(game);
+    game.appendChild(ul);
   }
 }
 

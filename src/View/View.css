@@ -7,7 +7,35 @@
 }
 
 .view-ul li {
-  border: 3px solid red;
+  border: 3px solid black;
   width: 23.8%;
   
+}
+
+.Red {
+  background: red;
+}
+
+.Orange {
+  background: orange;
+}
+
+.Yellow {
+  background: yellow;
+}
+
+.Green {
+  background: green;
+}
+
+.Blue {
+  background: blue;
+}
+
+.Indigo {
+  background: indigo;
+}
+
+.Violet {
+  background: violet;
 }

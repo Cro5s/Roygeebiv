@@ -1,4 +1,3 @@
-const COLORS = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
 class Square {
   constructor(value = 2) {
     this.value = value;
