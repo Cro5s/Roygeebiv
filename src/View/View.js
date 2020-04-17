@@ -5,7 +5,6 @@ class View {
     this.board = new Board();
     this.grid = [[], [], [], []];
     this.createView();
-    // console.log(this.board.grid);
   }
 
   // Created in order to set multiple attributes at once on an element
