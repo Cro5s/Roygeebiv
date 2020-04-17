@@ -5,6 +5,8 @@ class View {
     this.board = new Board();
     this.grid = [[], [], [], []];
     this.createView();
+    this.keyDownListener();
+    this.newGameListener();
   }
 
   // Created in order to set multiple attributes at once on an element
@@ -12,6 +14,62 @@ class View {
     for (let key in attribs) {
       el.setAttribute(key, attribs[key]);
     }
+  }
+
+  keyDownListener() {
+    const onKeyDown = (e) => {
+      e.preventDefault();
+      // if (!this.board.gameOver) {
+      console.log(e.keyCode);
+      switch (e.keyCode || e.which) {
+        case 38:
+          this.board.up();
+          this.render();
+          break;
+        case 87:
+          this.board.up();
+          this.render();
+          break;
+        case 40:
+          this.board.down();
+          this.render();
+          break;
+        case 83:
+          this.board.down();
+          this.render();
+          break;
+        case 37:
+          this.board.left();
+          this.render();
+          break;
+        case 65:
+          this.board.left();
+          this.render();
+          break;
+        case 39:
+          this.board.right();
+          this.render();
+          break;
+        case 68:
+          this.board.right();
+          this.render();
+          break;
+        default:
+          return;
+      }
+      // }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+  }
+
+  newGameListener() {
+    const newGame = () => {
+      this.board = new Board();
+      this.render();
+    };
+
+    document.getElementById("new-game").addEventListener("click", newGame);
   }
 
   render() {

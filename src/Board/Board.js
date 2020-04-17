@@ -6,7 +6,10 @@ class Board {
     this.addRandomSquare();
     this.addRandomSquare();
     this.change = false;
-    this.down();
+    this.up = this.up;
+    this.down = this.down;
+    this.left = this.left;
+    this.right = this.right;
   }
 
   addSquare(square, row, col) {
@@ -34,7 +37,6 @@ class Board {
     }
 
     this.grid[row][col] = square;
-    console.log("New Square added at", row, col);
   }
 
   up() {
@@ -43,6 +45,7 @@ class Board {
     this.pushUp();
     if (this.change) {
       this.addRandomSquare();
+      this.change = false;
     }
   }
 
@@ -89,13 +92,11 @@ class Board {
     this.pushDown();
     if (this.change) {
       this.addRandomSquare();
-      console.log("Inside change if statement");
+      this.change = false;
     }
   }
 
   pushDown() {
-    // let change = false;
-
     for (let row = 3; row >= 0; row--) {
       for (let col = 0; col < 4; col++) {
         if (this.grid[row][col]) {
@@ -129,11 +130,6 @@ class Board {
         }
       }
     }
-
-    // if (change) {
-    //   this.addRandomSquare();
-    //   console.log("Inside change if statement");
-    // }
   }
 
   condenseDown() {
@@ -161,6 +157,7 @@ class Board {
     this.pushLeft();
     if (this.change) {
       this.addRandomSquare();
+      this.change = false;
     }
   }
 
@@ -207,6 +204,7 @@ class Board {
     this.pushRight();
     if (this.change) {
       this.addRandomSquare();
+      this.change = false;
     }
   }
 
