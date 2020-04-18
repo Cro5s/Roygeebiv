@@ -17,7 +17,42 @@ class Board {
   }
 
   full() {
-    return false;
+    for (let row = 0; row < 4; row++) {
+      for (let col = 0; col < 4; col++) {
+        if (!this.grid[row][col]) return false;
+      }
+    }
+
+    return true;
+  }
+
+  gameOver() {
+    // this.collapsible = true;
+    let collapsible = true;
+
+    if (collapsible) {
+      collapsible = false;
+
+      for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+          let currentSquare = this.grid[row][col];
+          let rowPlusOne = this.grid[row + 1][col];
+          let colPlusOne = this.grid[row][col + 1];
+
+          if (
+            (this.full() && currentSquare.value === rowPlusOne.value) ||
+            (this.full() && currentSquare.value === colPlusOne.value)
+          )
+            collapsible = true;
+        }
+      }
+    }
+
+    if (this.full() && !collapsible) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   removeSquare(row, col) {
@@ -25,19 +60,23 @@ class Board {
   }
 
   addRandomSquare() {
-    if (this.full()) return;
-    let row = Math.floor(Math.random() * 4);
-    let col = Math.floor(Math.random() * 4);
-    let num = Math.random() * 1;
-    let square = num > 0.5 ? new Square() : new Square(4);
+    // if (this.full()) return;
+    if (!this.full()) {
+      let row = Math.floor(Math.random() * 4);
+      let col = Math.floor(Math.random() * 4);
+      let num = Math.random() * 1;
+      let square = num > 0.5 ? new Square() : new Square(4);
 
-    while (this.grid[row][col]) {
-      row = Math.floor(Math.random() * 4);
-      col = Math.floor(Math.random() * 4);
+      while (this.grid[row][col]) {
+        row = Math.floor(Math.random() * 4);
+        col = Math.floor(Math.random() * 4);
+      }
+
+      this.grid[row][col] = square;
     }
-
-    this.grid[row][col] = square;
   }
+
+  // move(row, col) {}
 
   up() {
     this.pushUp();
@@ -79,6 +118,9 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row + 1, col);
               square.value = square.value * 2;
+              if (square.value >= 128) {
+                this.gameOver = true;
+              }
             }
           }
         }
@@ -102,30 +144,12 @@ class Board {
         if (this.grid[row][col]) {
           const square = this.grid[row][col];
           let localRow = row;
-          console.log(
-            "Before change",
-            row,
-            col,
-            "Square value:",
-            square.value,
-            "Changed:",
-            this.change
-          );
 
           while (localRow + 1 < 4 && !this.grid[localRow + 1][col]) {
             this.removeSquare(localRow, col);
             this.addSquare(square, localRow + 1, col);
             this.change = true;
             localRow++;
-            console.log(
-              "We changed",
-              row + 1,
-              col,
-              "Square value:",
-              square.value,
-              "Changed:",
-              this.change
-            );
           }
         }
       }
@@ -144,6 +168,9 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row - 1, col);
               square.value = square.value * 2;
+              if (square.value >= 128) {
+                this.gameOver = true;
+              }
             }
           }
         }
@@ -191,6 +218,9 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row, col + 1);
               square.value = square.value * 2;
+              if (square.value >= 128) {
+                this.gameOver = true;
+              }
             }
           }
         }
@@ -238,6 +268,9 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row, col - 1);
               square.value = square.value * 2;
+              if (square.value >= 128) {
+                this.gameOver = true;
+              }
             }
           }
         }
