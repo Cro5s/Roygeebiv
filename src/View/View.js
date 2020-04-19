@@ -7,6 +7,7 @@ class View {
     this.createView();
     this.keyDownListener();
     this.newGameListener();
+    // this.endGameListener();
     this.render = this.render.bind(this);
   }
 
@@ -20,8 +21,11 @@ class View {
   keyDownListener() {
     const onKeyDown = (e) => {
       e.preventDefault();
+      console.log("this.board.gameOver:", this.board.gameOver());
 
-      if (!this.board.gameOver()) {
+      if (this.board.gameOver()) {
+        this.endGame();
+      } else if (!this.board.gameOver()) {
         switch (e.keyCode || e.which) {
           case 38:
             this.board.up();
@@ -73,9 +77,15 @@ class View {
     document.getElementById("new-game").addEventListener("click", newGame);
   }
 
+  // endGameListener() {
   endGame() {
+    // if (this.board.gameOver) {
     window.alert("Game Over");
+    // }
   }
+
+  //   document.addEventListener("gameOver", endGame);
+  // }
 
   render() {
     this.grid.forEach((row, rowIdx) => {
@@ -98,6 +108,7 @@ class View {
         let cell = document.createElement("li");
 
         this.setAttributes(cell, {
+          class: "cell",
           pos: [row, col],
         });
 

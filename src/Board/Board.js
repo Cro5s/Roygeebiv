@@ -5,7 +5,22 @@ class Board {
     this.grid = [[], [], [], []];
     this.addRandomSquare();
     this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
+    // this.addRandomSquare();
     this.change = false;
+    this.gameOver = this.gameOver;
     this.up = this.up;
     this.down = this.down;
     this.left = this.left;
@@ -27,7 +42,6 @@ class Board {
   }
 
   gameOver() {
-    // this.collapsible = true;
     let collapsible = true;
 
     if (collapsible) {
@@ -60,8 +74,7 @@ class Board {
   }
 
   addRandomSquare() {
-    // if (this.full()) return;
-    if (!this.full()) {
+    if (!this.gameOver()) {
       let row = Math.floor(Math.random() * 4);
       let col = Math.floor(Math.random() * 4);
       let num = Math.random() * 1;
@@ -118,8 +131,11 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row + 1, col);
               square.value = square.value * 2;
+              console.log("Square Value:", square.value);
+
               if (square.value >= 128) {
                 this.gameOver = true;
+                window.alert("You Win!");
               }
             }
           }
@@ -168,8 +184,12 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row - 1, col);
               square.value = square.value * 2;
+
+              console.log("Square Value:", square.value);
+
               if (square.value >= 128) {
                 this.gameOver = true;
+                window.alert("You Win!");
               }
             }
           }
@@ -218,8 +238,12 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row, col + 1);
               square.value = square.value * 2;
+
+              console.log("Square Value:", square.value);
+
               if (square.value >= 128) {
                 this.gameOver = true;
+                window.alert("You Win!");
               }
             }
           }
@@ -270,6 +294,7 @@ class Board {
               square.value = square.value * 2;
               if (square.value >= 128) {
                 this.gameOver = true;
+                window.alert("You Win!");
               }
             }
           }
