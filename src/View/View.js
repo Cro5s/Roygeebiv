@@ -7,7 +7,6 @@ class View {
     this.createView();
     this.keyDownListener();
     this.newGameListener();
-    // this.endGameListener();
     this.render = this.render.bind(this);
   }
 
@@ -21,11 +20,12 @@ class View {
   keyDownListener() {
     const onKeyDown = (e) => {
       e.preventDefault();
-      console.log("this.board.gameOver:", this.board.gameOver());
+      console.log("this.board.gameOver():", this.board.gameOver());
 
-      if (this.board.gameOver()) {
-        this.endGame();
-      } else if (!this.board.gameOver()) {
+      // if (this.board.gameOver()) {
+      // this.endGame();
+      // }
+      if (!this.board.gameOver()) {
         switch (e.keyCode || e.which) {
           case 38:
             this.board.up();
@@ -62,6 +62,8 @@ class View {
           default:
             return;
         }
+      } else if (this.board.gameOver()) {
+        this.endGame();
       }
     };
 
@@ -77,25 +79,36 @@ class View {
     document.getElementById("new-game").addEventListener("click", newGame);
   }
 
-  // endGameListener() {
   endGame() {
-    // if (this.board.gameOver) {
     window.alert("Game Over");
-    // }
   }
 
-  //   document.addEventListener("gameOver", endGame);
-  // }
-
   render() {
+    let square;
+
     this.grid.forEach((row, rowIdx) => {
       row.forEach((el, colIdx) => {
-        const square = this.board.grid[rowIdx][colIdx];
+        let square = this.board.grid[rowIdx][colIdx];
         const color = square ? square.color() : "";
 
         this.setAttributes(el, { class: color });
+
+        if (square && square.value >= 128) {
+          this.board.gameOver = true;
+          window.alert("You Win!");
+        }
       });
     });
+
+    this.win(square);
+  }
+
+  win(square) {
+    console.log("Square inside win:", square);
+    if (square && square.value >= 128) {
+      this.board.gameOver = true;
+      window.alert("You Win!");
+    }
   }
 
   createView() {

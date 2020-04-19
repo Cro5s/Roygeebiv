@@ -1,5 +1,5 @@
 .main-container {
-  background: wheat;
+  background: white;
   width: 100%;
   height: 100%;
 }
@@ -7,7 +7,7 @@
 .navbar {
   padding: 10px;
   display: flow-root;
-  background:  wheat;
+  background:  white;
 }
 
 .navbar-right {

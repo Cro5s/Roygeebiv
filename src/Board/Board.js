@@ -89,8 +89,6 @@ class Board {
     }
   }
 
-  // move(row, col) {}
-
   up() {
     this.pushUp();
     this.condenseUp();
@@ -131,12 +129,14 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row + 1, col);
               square.value = square.value * 2;
+
+              // Remove me!!!!!
               console.log("Square Value:", square.value);
 
-              if (square.value >= 128) {
-                this.gameOver = true;
-                window.alert("You Win!");
-              }
+              // if (square.value >= 128) {
+              //   this.gameOver = true;
+              //   window.alert("You Win!");
+              // }
             }
           }
         }
@@ -185,12 +185,13 @@ class Board {
               this.removeSquare(row - 1, col);
               square.value = square.value * 2;
 
+              // Remove me!!!
               console.log("Square Value:", square.value);
 
-              if (square.value >= 128) {
-                this.gameOver = true;
-                window.alert("You Win!");
-              }
+              // if (square.value >= 128) {
+              //   this.gameOver = true;
+              //   window.alert("You Win!");
+              // }
             }
           }
         }
@@ -239,12 +240,13 @@ class Board {
               this.removeSquare(row, col + 1);
               square.value = square.value * 2;
 
+              //Remove me!!!
               console.log("Square Value:", square.value);
 
-              if (square.value >= 128) {
-                this.gameOver = true;
-                window.alert("You Win!");
-              }
+              // if (square.value >= 128) {
+              //   this.gameOver = true;
+              //   window.alert("You Win!");
+              // }
             }
           }
         }
@@ -292,10 +294,14 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row, col - 1);
               square.value = square.value * 2;
-              if (square.value >= 128) {
-                this.gameOver = true;
-                window.alert("You Win!");
-              }
+
+              // Remove me!!!
+              console.log("Square Value", square.value);
+
+              // if (square.value >= 128) {
+              //   this.gameOver = true;
+              //   window.alert("You Win!");
+              // }
             }
           }
         }
