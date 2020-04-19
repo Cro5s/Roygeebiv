@@ -20,7 +20,7 @@ class Board {
     // this.addRandomSquare();
     // this.addRandomSquare();
     this.change = false;
-    this.gameOver = this.gameOver;
+    // this.gameOver = this.gameOver;
     this.up = this.up;
     this.down = this.down;
     this.left = this.left;
@@ -89,6 +89,16 @@ class Board {
     }
   }
 
+  win() {
+    const winningSquare = document.getElementById(128);
+
+    if (winningSquare) {
+      console.log("Square Id:", winningSquare.id);
+      this.gameOver = true;
+      window.alert("You Win!");
+    }
+  }
+
   up() {
     this.pushUp();
     this.condenseUp();
@@ -97,6 +107,7 @@ class Board {
       this.addRandomSquare();
       this.change = false;
     }
+    this.win();
   }
 
   pushUp() {
@@ -152,6 +163,7 @@ class Board {
       this.addRandomSquare();
       this.change = false;
     }
+    this.win();
   }
 
   pushDown() {
@@ -207,6 +219,7 @@ class Board {
       this.addRandomSquare();
       this.change = false;
     }
+    this.win();
   }
 
   pushLeft() {
@@ -262,6 +275,7 @@ class Board {
       this.addRandomSquare();
       this.change = false;
     }
+    this.win();
   }
 
   pushRight() {

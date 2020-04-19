@@ -6,7 +6,7 @@ class View {
     this.grid = [[], [], [], []];
     this.createView();
     this.keyDownListener();
-    this.newGameListener();
+    this.onClickListener();
     this.render = this.render.bind(this);
   }
 
@@ -19,12 +19,8 @@ class View {
 
   keyDownListener() {
     const onKeyDown = (e) => {
-      e.preventDefault();
       console.log("this.board.gameOver():", this.board.gameOver());
 
-      // if (this.board.gameOver()) {
-      // this.endGame();
-      // }
       if (!this.board.gameOver()) {
         switch (e.keyCode || e.which) {
           case 38:
@@ -70,13 +66,16 @@ class View {
     document.addEventListener("keydown", onKeyDown);
   }
 
-  newGameListener() {
+  onClickListener() {
     const newGame = () => {
       this.board = new Board();
       this.render();
     };
 
+    const rules = () => {};
+
     document.getElementById("new-game").addEventListener("click", newGame);
+    document.getElementById("rules").addEventListener("click", rules);
   }
 
   endGame() {
@@ -84,32 +83,30 @@ class View {
   }
 
   render() {
-    let square;
-
     this.grid.forEach((row, rowIdx) => {
       row.forEach((el, colIdx) => {
         let square = this.board.grid[rowIdx][colIdx];
         const color = square ? square.color() : "";
+        const value = square ? square.value : 0;
 
-        this.setAttributes(el, { class: color });
-
-        if (square && square.value >= 128) {
-          this.board.gameOver = true;
-          window.alert("You Win!");
-        }
+        this.setAttributes(el, { class: color, id: value });
+        // if (square && square.value >= 128) {
+        //   this.board.gameOver = true;
+        //   window.alert("You Win!");
+        // }
       });
     });
-
-    this.win(square);
   }
 
-  win(square) {
-    console.log("Square inside win:", square);
-    if (square && square.value >= 128) {
-      this.board.gameOver = true;
-      window.alert("You Win!");
-    }
-  }
+  // win() {
+  //   const winningSquare = document.getElementById(128);
+
+  //   if (winningSquare) {
+  //     console.log("Square Id:", winningSquare.id);
+  //     this.board.gameOver = true;
+  //     window.alert("You Win!");
+  //   }
+  // }
 
   createView() {
     const game = document.getElementById("game-div");
@@ -121,7 +118,6 @@ class View {
         let cell = document.createElement("li");
 
         this.setAttributes(cell, {
-          class: "cell",
           pos: [row, col],
         });
 
