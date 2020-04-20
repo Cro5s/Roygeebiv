@@ -5,22 +5,7 @@ class Board {
     this.grid = [[], [], [], []];
     this.addRandomSquare();
     this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
-    // this.addRandomSquare();
     this.change = false;
-    // this.gameOver = this.gameOver;
     this.up = this.up;
     this.down = this.down;
     this.left = this.left;
@@ -53,11 +38,39 @@ class Board {
           let rowPlusOne = this.grid[row + 1][col];
           let colPlusOne = this.grid[row][col + 1];
 
-          if (
-            (this.full() && currentSquare.value === rowPlusOne.value) ||
-            (this.full() && currentSquare.value === colPlusOne.value)
-          )
-            collapsible = true;
+          if (row === 2) {
+            if (
+              (this.full() && currentSquare.value === rowPlusOne.value) ||
+              (this.full() && currentSquare.value === colPlusOne.value)
+            )
+              collapsible = true;
+
+            const newRow = 3;
+            let newCurrentSquare = this.grid[newRow][col];
+            let newColPlusOne = this.grid[newRow][col + 1];
+
+            if (this.full() && newCurrentSquare.value === newColPlusOne.value)
+              collapsible = true;
+          } else if (col === 2) {
+            if (
+              (this.full() && currentSquare.value === rowPlusOne.value) ||
+              (this.full() && currentSquare.value === colPlusOne.value)
+            )
+              collapsible = true;
+
+            const newCol = 3;
+            let newCurrentSquare = this.grid[row][newCol];
+            let newRowPlusOne = this.grid[row + 1][newCol];
+
+            if (this.full() && newCurrentSquare.value === newRowPlusOne.value)
+              collapsible = true;
+          } else {
+            if (
+              (this.full() && currentSquare.value === rowPlusOne.value) ||
+              (this.full() && currentSquare.value === colPlusOne.value)
+            )
+              collapsible = true;
+          }
         }
       }
     }
@@ -89,17 +102,6 @@ class Board {
     }
   }
 
-  win() {
-    const winningSquare = document.getElementById(128);
-
-    if (winningSquare) {
-      console.log("Square Id:", winningSquare.id);
-      this.gameOver = true;
-      window.alert("You Win!");
-      document.getElementById("new-game").click();
-    }
-  }
-
   up() {
     this.pushUp();
     this.condenseUp();
@@ -108,7 +110,6 @@ class Board {
       this.addRandomSquare();
       this.change = false;
     }
-    this.win();
   }
 
   pushUp() {
@@ -141,14 +142,6 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row + 1, col);
               square.value = square.value * 2;
-
-              // Remove me!!!!!
-              console.log("Square Value:", square.value);
-
-              // if (square.value >= 128) {
-              //   this.gameOver = true;
-              //   window.alert("You Win!");
-              // }
             }
           }
         }
@@ -164,7 +157,6 @@ class Board {
       this.addRandomSquare();
       this.change = false;
     }
-    this.win();
   }
 
   pushDown() {
@@ -197,14 +189,6 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row - 1, col);
               square.value = square.value * 2;
-
-              // Remove me!!!
-              console.log("Square Value:", square.value);
-
-              // if (square.value >= 128) {
-              //   this.gameOver = true;
-              //   window.alert("You Win!");
-              // }
             }
           }
         }
@@ -220,7 +204,6 @@ class Board {
       this.addRandomSquare();
       this.change = false;
     }
-    this.win();
   }
 
   pushLeft() {
@@ -253,14 +236,6 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row, col + 1);
               square.value = square.value * 2;
-
-              //Remove me!!!
-              console.log("Square Value:", square.value);
-
-              // if (square.value >= 128) {
-              //   this.gameOver = true;
-              //   window.alert("You Win!");
-              // }
             }
           }
         }
@@ -276,7 +251,6 @@ class Board {
       this.addRandomSquare();
       this.change = false;
     }
-    this.win();
   }
 
   pushRight() {
@@ -309,14 +283,6 @@ class Board {
             if (square.value === compareSquare.value) {
               this.removeSquare(row, col - 1);
               square.value = square.value * 2;
-
-              // Remove me!!!
-              console.log("Square Value", square.value);
-
-              // if (square.value >= 128) {
-              //   this.gameOver = true;
-              //   window.alert("You Win!");
-              // }
             }
           }
         }
