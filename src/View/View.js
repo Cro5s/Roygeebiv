@@ -19,41 +19,47 @@ class View {
 
   keyDownListener() {
     const onKeyDown = (e) => {
-      console.log("this.board.gameOver():", this.board.gameOver());
-
       if (!this.board.gameOver()) {
         switch (e.keyCode || e.which) {
           case 38:
             this.board.up();
             this.render();
+            this.timeOut();
             break;
           case 87:
             this.board.up();
             this.render();
+            this.timeOut();
             break;
           case 40:
             this.board.down();
             this.render();
+            this.timeOut();
             break;
           case 83:
             this.board.down();
             this.render();
+            this.timeOut();
             break;
           case 37:
             this.board.left();
             this.render();
+            this.timeOut();
             break;
           case 65:
             this.board.left();
             this.render();
+            this.timeOut();
             break;
           case 39:
             this.board.right();
             this.render();
+            this.timeOut();
             break;
           case 68:
             this.board.right();
             this.render();
+            this.timeOut();
             break;
           default:
             return;
@@ -66,16 +72,29 @@ class View {
     document.addEventListener("keydown", onKeyDown);
   }
 
+  timeOut() {
+    setTimeout(() => this.win(), 100);
+  }
+
   onClickListener() {
     const newGame = () => {
       this.board = new Board();
       this.render();
     };
 
-    const rules = () => {};
+    const rules = () => {
+      document.querySelector(".game-rules-container").style = "display: block";
+    };
+
+    const closeRules = () => {
+      document.querySelector(".game-rules-container").style = "display: none";
+    };
 
     document.getElementById("new-game").addEventListener("click", newGame);
     document.getElementById("rules").addEventListener("click", rules);
+    document
+      .querySelector(".fa-times-circle")
+      .addEventListener("click", closeRules);
   }
 
   endGame() {
@@ -90,23 +109,19 @@ class View {
         const value = square ? square.value : 0;
 
         this.setAttributes(el, { class: color, id: value });
-        // if (square && square.value >= 128) {
-        //   this.board.gameOver = true;
-        //   window.alert("You Win!");
-        // }
       });
     });
   }
 
-  // win() {
-  //   const winningSquare = document.getElementById(128);
+  win() {
+    const winningSquare = document.getElementById(128);
 
-  //   if (winningSquare) {
-  //     console.log("Square Id:", winningSquare.id);
-  //     this.board.gameOver = true;
-  //     window.alert("You Win!");
-  //   }
-  // }
+    if (winningSquare) {
+      this.board.gameOver = true;
+      window.alert("You Win!");
+      document.getElementById("new-game").click();
+    }
+  }
 
   createView() {
     const game = document.getElementById("game-div");

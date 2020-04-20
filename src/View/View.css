@@ -1,7 +1,11 @@
 .main-container {
   background: wheat;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
 }
 
 .navbar {
@@ -123,8 +127,11 @@ animation:rainbow 2s infinite;
 }
 
 .game-buttons-div {
+  position: absolute;
+  bottom: -30px;
   display: flex;
   justify-content: center;
+  width: 430px;
 
 }
 
@@ -132,21 +139,62 @@ animation:rainbow 2s infinite;
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
-  width: 35%;
+  width: 100%;
   font-size: 20px;
   font-weight: bolder;
 }
 
 .rules-div {
-  width: 225px;
   text-align: start;
+} 
 
+.game-rules-container {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  letter-spacing: 0.1em;
+  font-size: 25px;
+  font-weight: bolder;
+  background: rgba(255, 255, 255, 0.774);
+  width: 800px;
+  text-align: center;
+}
+
+.details-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-times-circle {
+  position: absolute;
+  top: 3%;
+  right: 1%;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.fa-times-circle:hover {
+  color: red;
+}
+
+.movement-rules {
+  margin: 30px;
+}
+
+.game-rules {
+  margin: 30px;
 }
 
 .new-game-div {
-  width: 225px;
   text-align: end;
   
+}
+
+#game-div {
+  position: relative;
 }
 
 .view-ul {

@@ -9,46 +9,65 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./dist/assets/favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./dist/assets/favicon_io/favicon-16x16.png">
   <link rel="manifest" href="./dist/assets/favicon_io/site.webmanifest">
+
+  <script src="https://kit.fontawesome.com/6bd696cce4.js" crossorigin="anonymous"></script>
   <script src="./dist/main.js"></script>
   <title>ROYGBIV</title>
 </head>
-<body class="main-container">
-  <nav class="navbar">
-    <div class="navbar-right">
-      <div class="LinkedIn">
-        <a 
-          href="https://www.linkedin.com/in/kadeem-jackson-4349348a/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >LinkedIn
-        </a>
+
+<body>
+  <div class="main-container">
+    <nav class="navbar">
+      <div class="navbar-right">
+        <div class="LinkedIn">
+          <a 
+            href="https://www.linkedin.com/in/kadeem-jackson-4349348a/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn
+          </a>
+        </div>
+        <div class="GitHub">
+          <a 
+            href="https://github.com/Cro5s/Roygeebiv"
+            target="_blank"
+            rel="noopener noreferrer"
+          >GitHub
+          </a>
+        </div>
       </div>
-      <div class="GitHub">
-        <a 
-          href="https://github.com/Cro5s/Roygeebiv"
-          target="_blank"
-          rel="noopener noreferrer"
-        >GitHub
-        </a>
+    </nav>
+    <h1 class="game-title">ROYGBIV</h1>
+    <div id="root">
+      <div id="game-div">
+        <div class="game-buttons-div">
+          <div class="game-buttons">
+            
+            <div class="rules-div">
+              <button id="rules">How to play</button>
+              <div class="game-rules-container">
+                <div class="details-container">
+                  <i class="far fa-times-circle"></i>
+                  <p class="movement-rules">
+                    To move pieces on the board you can use the direction keys (up, down, left, right) or W for up, S for down, A for left, and D for right.
+                  </p> 
+                  <p class="game-rules">
+                    Combine squares of the same color until you get one pink square to win!
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="new-game-div">
+              <button id="new-game">New Game</button>
+            </div>
+          </div>
+    
+        </div>
+
       </div>
     </div>
-  </nav>
-  <h1 class="game-title">ROYGBIV</h1>
-  <div id="root">
-    <div id="game-div"></div>
+    
   </div>
-  <div class="game-buttons-div">
-    <div class="game-buttons">
-      
-      <div class="rules-div">
-        <button id="rules">How to play</button>
-      </div>
-      <div class="new-game-div">
-        <button id="new-game">New Game</button>
-      </div>
-
-    </div>
-  </div>
-
 </body>
 </html>
