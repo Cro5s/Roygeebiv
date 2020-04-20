@@ -42,10 +42,13 @@
   color: black;
   text-align: center;
   font-size: 40px;
+  font-family: 'Amiri', serif;
 }
 
 #rules {
   color: black;
+  font-size: 25px;
+  font-family: 'Amiri', serif;
 }
 
 #rules:hover {
@@ -54,6 +57,8 @@
 
 #new-game {
   color: black;
+  font-size: 25px;
+  font-family: 'Amiri', serif;
 }
 
 #new-game:hover {
@@ -128,7 +133,7 @@ animation:rainbow 2s infinite;
 
 .game-buttons-div {
   position: absolute;
-  bottom: -30px;
+  bottom: -40px;
   display: flex;
   justify-content: center;
   width: 430px;
@@ -182,10 +187,12 @@ animation:rainbow 2s infinite;
 
 .movement-rules {
   margin: 30px;
+  font-family: 'Playfair Display', serif;
 }
 
 .game-rules {
   margin: 30px;
+  font-family: 'Playfair Display', serif;
 }
 
 .new-game-div {
