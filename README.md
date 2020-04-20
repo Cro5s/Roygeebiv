@@ -3,6 +3,8 @@ ROYGBIV is a game inspired by 2048 where players combine squares of the same col
 
 [Play ROYGBIV](https://cro5s.github.io/Roygeebiv/)
 
+![Board Sample](https://github.com/Cro5s/Roygeebiv/blob/master/dist/assets/board_sample.png)
+
 ## Functionality & MVP List
   1. Using a modal display directions for the game
   2. New game button to start a new game
