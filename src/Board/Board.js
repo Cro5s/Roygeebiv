@@ -96,6 +96,7 @@ class Board {
       console.log("Square Id:", winningSquare.id);
       this.gameOver = true;
       window.alert("You Win!");
+      document.getElementById("new-game").click();
     }
   }
 
