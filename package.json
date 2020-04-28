@@ -4,7 +4,10 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack --watch --mode=development"
+    "start": "webpack --watch --mode=development",
+    "build": "webpack && npm run copy-css",
+    "copy-css": "cp -a src/View/View.css dist/style.css"
+
   },
   "keywords": [],
   "author": "",
