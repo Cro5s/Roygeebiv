@@ -1,7 +1,7 @@
 # Roygeebiv
 ROYGBIV is a game inspired by 2048 where players combine squares of the same color starting with red as they progress through the colors of the Rainbow (Red, Orange, Yellow, Green, Blue, Indigo, Violet). A player wins when they get any square to go from red to violet.
 
-[Play ROYGBIV](https://cro5s.github.io/Roygeebiv/)
+[Play ROYGBIV](https://roygbiv.kadeemjackson.dev)
 
 ![Board Sample](https://github.com/Cro5s/Roygeebiv/blob/master/dist/assets/board_sample.png)
 

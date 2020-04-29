@@ -82,19 +82,56 @@ class View {
       this.render();
     };
 
+    const modal = (props) => {
+      const { score, msg } = props;
+
+      return `
+        <div id="game-rules-container">
+          <div class="details-container">
+            <p class="modal-score">${score}</p>
+            <p class="modal-msg">${msg}</p>
+          </div>
+        </div>
+      `;
+    };
+
+    // top 50%
+    // transform: translateY(-100%)
+
     const rules = () => {
-      document.querySelector(".game-rules-container").style = "display: block";
+      // document.querySelector(".game-rules-container").style = "display: block";
+
+      const msg = `<p class="movement-rules">
+          To move pieces on the board you can use the direction keys (up, down,
+          left, right) or W for up, S for down, A for left, and D for right.
+        </p>
+        <p class="game-rules">
+          Squares change in order according to the rainbow (Red, Orange, Yellow,
+          Green, Blue, Indigo, Violet). Combine squares of the same color until
+          you get one violet square to win!
+        </p>`;
+
+      const m = modal({ msg });
+      document.getElementById("body").insertAdjacentHTML("beforeend", m);
     };
 
     const closeRules = () => {
-      document.querySelector(".game-rules-container").style = "display: none";
+      // document.querySelector(".game-rules-container").style = "display: none";
+
+      document.getElementById("game-rules-container").remove();
     };
 
     document.getElementById("new-game").addEventListener("click", newGame);
     document.getElementById("rules").addEventListener("click", rules);
-    document
-      .querySelector(".fa-times-circle")
-      .addEventListener("click", closeRules);
+    document.addEventListener("click", (e) => {
+      e.target.id;
+      // currentTarget
+      //e.target.classList.contains("js-closemodal")
+      // if the event that happened was on the x then call close rules function
+    });
+    // document
+    //   .querySelector(".fa-times-circle")
+    //   .addEventListener("click", closeRules);
   }
 
   endGame() {
