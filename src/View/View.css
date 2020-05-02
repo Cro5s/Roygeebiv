@@ -155,12 +155,10 @@ animation:rainbow 1s infinite;
   text-align: start;
 } 
 
-.game-rules-container {
-  display: none;
+#game-rules-container {
   position: absolute;
   left: 50%;
-  top: 50%;
-  bottom: 0;
+  top: 43%;
   transform: translate(-50%, -50%);
   letter-spacing: 0.1em;
   font-size: 25px;
@@ -172,7 +170,6 @@ animation:rainbow 1s infinite;
 
 .details-container {
   position: relative;
-  transform: translateY(65%);
   display: flex;
   flex-direction: column;
 }

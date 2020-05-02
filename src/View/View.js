@@ -79,24 +79,34 @@ class View {
   onClickListener() {
     const newGame = () => {
       this.board = new Board();
+      this.score = 0;
       this.render();
     };
 
     const modal = (props) => {
       const { score, msg } = props;
 
-      return `
-        <div id="game-rules-container">
-          <div class="details-container">
-            <p class="modal-score">${score}</p>
-            <p class="modal-msg">${msg}</p>
+      if (score) {
+        return `
+          <div id="game-rules-container">
+            <div class="details-container">
+              <i class="far fa-times-circle"></i>
+              <p class="modal-score">${score}</p>
+              <p class="modal-msg">${msg}</p>
+            </div>
           </div>
-        </div>
-      `;
+        `;
+      } else {
+        return `
+          <div id="game-rules-container">
+            <div class="details-container">
+              <i class="far fa-times-circle"></i>
+              <p class="modal-msg">${msg}</p>
+            </div>
+          </div>
+        `;
+      }
     };
-
-    // top 50%
-    // transform: translateY(-100%)
 
     const rules = () => {
       // document.querySelector(".game-rules-container").style = "display: block";
@@ -111,8 +121,8 @@ class View {
           you get one violet square to win!
         </p>`;
 
-      const m = modal({ msg });
-      document.getElementById("body").insertAdjacentHTML("beforeend", m);
+      const mdl = modal({ msg });
+      document.getElementById("body").insertAdjacentHTML("beforeend", mdl);
     };
 
     const closeRules = () => {
@@ -124,10 +134,7 @@ class View {
     document.getElementById("new-game").addEventListener("click", newGame);
     document.getElementById("rules").addEventListener("click", rules);
     document.addEventListener("click", (e) => {
-      e.target.id;
-      // currentTarget
-      //e.target.classList.contains("js-closemodal")
-      // if the event that happened was on the x then call close rules function
+      if (e.target.classList.contains("fa-times-circle")) closeRules();
     });
     // document
     //   .querySelector(".fa-times-circle")
