@@ -7,6 +7,7 @@ class View {
     this.createView();
     this.keyDownListener();
     this.onClickListener();
+    // this.score();
     this.render = this.render.bind(this);
   }
 
@@ -16,6 +17,17 @@ class View {
       el.setAttribute(key, attribs[key]);
     }
   }
+
+  // score() {
+  //   let gameScore = `
+  //     <h2 class="score">Score: ${this.board.score}</h2>
+  //   `;
+
+  //   console.log("Score:", this.board.score);
+  //   document
+  //     .getElementById("score-div")
+  //     .insertAdjacentHTML("beforeend", gameScore);
+  // }
 
   keyDownListener() {
     const onKeyDown = (e) => {
@@ -64,9 +76,7 @@ class View {
           default:
             return;
         }
-      } else if (this.board.gameOver()) {
-        this.endGame();
-      }
+      } else if (this.board.gameOver()) this.endGame();
     };
 
     document.addEventListener("keydown", onKeyDown);
@@ -79,38 +89,10 @@ class View {
   onClickListener() {
     const newGame = () => {
       this.board = new Board();
-      this.score = 0;
       this.render();
     };
 
-    const modal = (props) => {
-      const { score, msg } = props;
-
-      if (score) {
-        return `
-          <div id="game-rules-container">
-            <div class="details-container">
-              <i class="far fa-times-circle"></i>
-              <p class="modal-score">${score}</p>
-              <p class="modal-msg">${msg}</p>
-            </div>
-          </div>
-        `;
-      } else {
-        return `
-          <div id="game-rules-container">
-            <div class="details-container">
-              <i class="far fa-times-circle"></i>
-              <p class="modal-msg">${msg}</p>
-            </div>
-          </div>
-        `;
-      }
-    };
-
     const rules = () => {
-      // document.querySelector(".game-rules-container").style = "display: block";
-
       const msg = `<p class="movement-rules">
           To move pieces on the board you can use the direction keys (up, down,
           left, right) or W for up, S for down, A for left, and D for right.
@@ -121,13 +103,11 @@ class View {
           you get one violet square to win!
         </p>`;
 
-      const mdl = modal({ msg });
+      const mdl = this.modal({ msg });
       document.getElementById("body").insertAdjacentHTML("beforeend", mdl);
     };
 
     const closeRules = () => {
-      // document.querySelector(".game-rules-container").style = "display: none";
-
       document.getElementById("game-rules-container").remove();
     };
 
@@ -136,14 +116,23 @@ class View {
     document.addEventListener("click", (e) => {
       if (e.target.classList.contains("fa-times-circle")) closeRules();
     });
-
-    // document
-    //   .querySelector(".fa-times-circle")
-    //   .addEventListener("click", closeRules);
   }
 
   endGame() {
-    // window.alert("Game Over");
+    window.alert("Game Over");
+  }
+
+  modal(props) {
+    const { msg } = props;
+
+    return `
+      <div id="game-rules-container">
+        <div class="details-container">
+          <i class="far fa-times-circle"></i>
+          ${msg}
+        </div>
+      </div>
+    `;
   }
 
   render() {

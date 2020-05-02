@@ -6,6 +6,7 @@ class Board {
     this.addRandomSquare();
     this.addRandomSquare();
     this.change = false;
+    // this.score = 0;
     this.up = this.up;
     this.down = this.down;
     this.left = this.left;
@@ -140,6 +141,7 @@ class Board {
             const compareSquare = this.grid[row + 1][col];
 
             if (square.value === compareSquare.value) {
+              // this.score += 10;
               this.removeSquare(row + 1, col);
               square.value = square.value * 2;
             }
@@ -187,6 +189,7 @@ class Board {
             const compareSquare = this.grid[row - 1][col];
 
             if (square.value === compareSquare.value) {
+              // this.score += 10;
               this.removeSquare(row - 1, col);
               square.value = square.value * 2;
             }
@@ -234,6 +237,7 @@ class Board {
             const compareSquare = this.grid[row][col + 1];
 
             if (square.value === compareSquare.value) {
+              // this.score += 10;
               this.removeSquare(row, col + 1);
               square.value = square.value * 2;
             }
@@ -281,6 +285,7 @@ class Board {
             const compareSquare = this.grid[row][col - 1];
 
             if (square.value === compareSquare.value) {
+              // this.score += 10;
               this.removeSquare(row, col - 1);
               square.value = square.value * 2;
             }
