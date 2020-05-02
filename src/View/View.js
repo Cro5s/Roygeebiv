@@ -136,13 +136,14 @@ class View {
     document.addEventListener("click", (e) => {
       if (e.target.classList.contains("fa-times-circle")) closeRules();
     });
+
     // document
     //   .querySelector(".fa-times-circle")
     //   .addEventListener("click", closeRules);
   }
 
   endGame() {
-    window.alert("Game Over");
+    // window.alert("Game Over");
   }
 
   render() {
