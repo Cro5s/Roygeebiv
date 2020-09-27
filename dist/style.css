@@ -64,10 +64,10 @@
 }
 
 #new-game:hover {
--webkit-animation:rainbow 10s infinite;
--ms-animation:rainbow 10s infinite;
--o-animation:rainbow 10s infinite;
-animation:rainbow 10s infinite;
+-webkit-animation:rainbow 50s infinite;
+-ms-animation:rainbow 50s infinite;
+-o-animation:rainbow 50s infinite;
+animation:rainbow 50s infinite;
 }
 @-webkit-keyframes rainbow {
 0% {color: #ff0000;}
