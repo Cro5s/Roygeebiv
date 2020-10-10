@@ -6,7 +6,7 @@ ROYGBIV is a game inspired by 2048 where players combine squares of the same col
 ![Board Sample](https://github.com/Cro5s/Roygeebiv/blob/master/dist/assets/board_sample.png)
 
 ## Functionality & MVP List
-  1. Using a modal display directions for the game
+  1. Using a modal to display directions for the game
   2. New game button to start a new game
   3. Game keeps track of a player's score.
   4. Production README
