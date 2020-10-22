@@ -6,7 +6,6 @@ class Board {
     this.addRandomSquare();
     this.addRandomSquare();
     this.change = false;
-    // this.score = 0;
     this.up = this.up;
     this.down = this.down;
     this.left = this.left;
