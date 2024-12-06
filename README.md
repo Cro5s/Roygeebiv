@@ -4,7 +4,7 @@ ROYGBIV is a game inspired by 2048 where players combine squares of the same col
 
 [Play ROYGBIV](https://roygeebiv.kadeemjackson.tech/)
 
-![Board Sample](https://github.com/Cro5s/Roygeebiv/blob/master/dist/assets/board_sample.png)
+![Board Sample](https://github.com/Cro5s/Roygeebiv/blob/master/assets/board_sample.png)
 
 ## Functionality & MVP List
 
@@ -17,7 +17,7 @@ ROYGBIV is a game inspired by 2048 where players combine squares of the same col
 
 ROYGBIV will consist of a single screen with the game board, game controls, directions, and nav links to the GitHub and my LinkedIn. Game controls will include using the directional keys (up, down, left, right) to slide all squares in the given direction, and a New Game button to start a new game. The score for the current player will be above the game board.
 
-![Wireframe](https://github.com/Cro5s/Roygeebiv/blob/master/dist/assets/wireframe.png)
+![Wireframe](https://github.com/Cro5s/Roygeebiv/blob/master/assets/wireframe.png)
 
 ## Technologies
 
