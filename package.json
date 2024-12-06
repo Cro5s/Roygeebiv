@@ -1,22 +1,21 @@
 {
-  "name": "ROYGBIV-webpack",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
-  "scripts": {
-    "start": "webpack --watch --mode=development",
-    "build": "webpack && npm run copy-css",
-    "copy-css": "cp -a src/View/View.css dist/style.css"
-
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
+    "name": "ROYGBIV-webpack",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "start": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --watch --mode=development",
+        "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack && npm run copy-css",
+        "copy-css": "cp -a src/View/View.css dist/style.css"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11"
+    },
+    "dependencies": {
+        "lodash": "^4.17.21"
+    }
 }

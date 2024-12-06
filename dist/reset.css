@@ -1,12 +1,11 @@
 button,
 ul,
 li {
-  border: none;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
-
 
 /* reset */
 
@@ -36,58 +35,58 @@ article,
 footer,
 time,
 small {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font: inherit;
-  color: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
-  box-sizing: inherit;
-  background: transparent;
-  font-family: "Source Sans Pro", sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+    box-sizing: inherit;
+    background: transparent;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
-  background-color: white;
+    background-color: white;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 img {
-  display: block;
-  width: 100%;
-  height: auto;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
-input[type="password"],
-input[type="email"],
-input[type="text"],
-input[type="submit"],
+input[type='password'],
+input[type='email'],
+input[type='text'],
+input[type='submit'],
 textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 button,
-input[type="submit"] {
-  cursor: pointer;
+input[type='submit'] {
+    cursor: pointer;
 }
 
 button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  color: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
-  box-sizing: inherit;
-  background: transparent;
-  font-family: "Source Sans Pro", sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+    box-sizing: inherit;
+    background: transparent;
+    font-family: 'Source Sans Pro', sans-serif;
 }

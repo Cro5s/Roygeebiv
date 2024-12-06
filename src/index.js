@@ -1,6 +1,6 @@
-import View from "./View/View";
+import View from './View/View';
 
-document.addEventListener("DOMContentLoaded", () => {
-  const view = new View();
-  view.render();
+document.addEventListener('DOMContentLoaded', () => {
+    const view = new View();
+    view.render();
 });
