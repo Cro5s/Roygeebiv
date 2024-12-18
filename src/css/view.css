@@ -1,3 +1,57 @@
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.modal.open {
+  opacity: 1;
+}
+
+.modal .content {
+  font-family: sans-serif;
+  background-color: white;
+  border-radius: 6px;
+  text-align: center;
+  padding: 4rem;
+}
+
+.modal .titleText {
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.modal .messageText {
+  font-weight: 400;
+  max-width: 50%;
+}
+
+.modal .details-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 64px 12px rgba(255, 255, 255, 0.2);
+}
+
+.modal .fa-times-circle {
+  position: absolute;
+  top: 3%;
+  right: 1%;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.modal .fa-times-circle:hover {
+  color: red;
+}
+
 .main-container {
   background: wheat;
   position: fixed;
@@ -46,13 +100,13 @@
   font-family: 'Amiri', serif;
 }
 
-button#openRulesModal {
+button#openModal {
   color: black;
   font-size: 25px;
   font-family: 'Amiri', serif;
 }
 
-button#openRulesModal:hover {
+button#openModal:hover {
   color: red;
 }
 
@@ -253,24 +307,6 @@ button#openRulesModal:hover {
   background: rgba(255, 255, 255, 0.774);
   width: 800px;
   text-align: center;
-}
-
-.details-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.fa-times-circle {
-  position: absolute;
-  top: 3%;
-  right: 1%;
-  cursor: pointer;
-  font-size: 30px;
-}
-
-.fa-times-circle:hover {
-  color: red;
 }
 
 .movement-rules {
